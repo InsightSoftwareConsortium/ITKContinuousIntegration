@@ -26,3 +26,6 @@ Remove-Item -recurse .\InsightToolkit-4.9.0
 new-item -ItemType directory src
 cd src
 & 'C:\Program Files\Git\bin\git.exe' clone git://itk.org/ITK.git
+
+
+netsh advfirewall firewall add rule dir=in protocol=TCP localport=445 name=SMPTCP action=allow
