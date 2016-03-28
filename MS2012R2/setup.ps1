@@ -21,3 +21,7 @@ Expand-ZIPFile -File 'C:\Jenkins\InsightData-4.9.0.zip' 'C:\Jenkins\'
 Move-Item .\InsightToolkit-4.9.0\.ExternalData\MD5 .\data\
 Remove-Item .\InsightData-4.9.0.zip
 Remove-Item -recurse .\InsightToolkit-4.9.0
+
+new-item -ItemType directory src
+cd src
+& 'C:\Program Files\Git\bin\git.exe' clone git://itk.org/ITK.git

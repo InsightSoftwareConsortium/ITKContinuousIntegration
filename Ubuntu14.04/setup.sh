@@ -31,6 +31,7 @@ mv InsightToolkit-4.9.0/.ExternalData/MD5/ ./data/
 rm -rf Insight*
 
 # The reference repository for cloning
+mkdir src
 cd src
 git clone git://itk.org/ITK.git
 
