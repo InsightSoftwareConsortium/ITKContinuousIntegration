@@ -65,7 +65,7 @@
     <SelectableItemCustomization Id="VS_SDK_Breadcrumb_GroupV3" Selected="no" FriendlyName="Visual Studio Extensibility Tools Update 1" />
     <SelectableItemCustomization Id="Win10_VSToolsV4" Hidden="no" Selected="no" FriendlyName="Tools for Universal Windows Apps (1.2) and Windows 10 SDK (10.0.10586)" />
     <SelectableItemCustomization Id="Win10SDK_HiddenV1" Hidden="no" Selected="no" FriendlyName="Windows 10 SDK (10.0.10240)" />
-    <SelectableItemCustomization Id="Win10SDK_HiddenV2" Selected="yes" FriendlyName="Windows 10 SDK (10.0.10586)" />
+    <SelectableItemCustomization Id="Win10SDK_HiddenV2" Selected="no" FriendlyName="Windows 10 SDK (10.0.10586)" />
     <SelectableItemCustomization Id="Win10SDK_VisibleV1" Hidden="no" Selected="no" FriendlyName="Windows 10 SDK 10.0.10240" />
     <SelectableItemCustomization Id="UWPPatch_KB3073097_HiddenV3" Selected="no" FriendlyName="KB3073097" />
     <SelectableItemCustomization Id="AppInsightsToolsVSWinExpressHiddenV4" Selected="no" FriendlyName="Application Insights Tools (4.1.60107)" />
