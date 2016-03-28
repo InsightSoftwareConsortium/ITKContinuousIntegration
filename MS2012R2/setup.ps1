@@ -1,5 +1,6 @@
 iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
-choco install -y visualstudio2015community git cmder vim processhacker javaruntime cmake ninja python3 python2
+choco install -y visualstudio2015community -packageParameters "--AdminFile https://raw.githubusercontent.com/InsightSoftwareConsortium/ITKBuildRobot/master/MS2012R2/VSAdminDeployment.xml"
+choco install -y git cmder vim processhacker javaruntime cmake ninja python3 python2
 
 new-item -ItemType directory C:\Jenkins
 new-item -ItemType directory C:\Jenkins\workspace
