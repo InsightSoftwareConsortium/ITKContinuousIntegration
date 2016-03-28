@@ -2,18 +2,18 @@
 <AdminDeploymentCustomizations xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/wix/2011/AdminDeployment">
   <BundleCustomizations TargetDir="C:\Program Files (x86)\Microsoft Visual Studio 14.0" NoCacheOnlyMode="default" NoWeb="default" NoRefresh="default" SuppressRefreshPrompt="default" Feed="default" />
   <SelectableItemCustomizations>
-    <SelectableItemCustomization Id="TypeScriptV6" Selected="yes" FriendlyName="TypeScript 1.7.6.0 for Visual Studio 2015 Update 1" />
+    <SelectableItemCustomization Id="TypeScriptV6" Selected="no" FriendlyName="TypeScript 1.7.6.0 for Visual Studio 2015 Update 1" />
     <SelectableItemCustomization Id="VSUV1" Hidden="no" Selected="yes" FriendlyName="Visual Studio 2015 Update 1" />
     <SelectableItemCustomization Id="VSUV1PreReqV1" Selected="yes" FriendlyName="Visual Studio 2015 Update 1 Prerequisite" />
     <SelectableItemCustomization Id="MicroUpdateV1.2" Selected="yes" FriendlyName="Update for Microsoft Visual Studio 2015 (KB3110221)" />
     <SelectableItemCustomization Id="WebToolsV1" Hidden="no" Selected="yes" FriendlyName="Microsoft Web Developer Tools" />
     <SelectableItemCustomization Id="GitForWindowsV3" Hidden="no" Selected="yes" FriendlyName="Git for Windows" />
-    <SelectableItemCustomization Id="JavaScript_HiddenV4" Selected="yes" FriendlyName="JavaScript Project System for Visual Studio" />
+    <SelectableItemCustomization Id="JavaScript_HiddenV4" Selected="no" FriendlyName="JavaScript Project System for Visual Studio" />
     <SelectableItemCustomization Id="MDDJSDependencyHiddenV1" Selected="yes" FriendlyName="MDDJSDependencyHidden" />
     <SelectableItemCustomization Id="AppInsightsToolsVisualStudioHiddenV4" Selected="yes" FriendlyName="Application Insights Tools (4.1.60107)" />
     <SelectableItemCustomization Id="BlissHidden" Selected="yes" FriendlyName="BlissHidden" />
     <SelectableItemCustomization Id="HelpHidden" Selected="yes" FriendlyName="HelpHidden" />
-    <SelectableItemCustomization Id="JavaScript" Selected="yes" FriendlyName="JavascriptHidden" />
+    <SelectableItemCustomization Id="JavaScript" Selected="no" FriendlyName="JavascriptHidden" />
     <SelectableItemCustomization Id="NetFX4Hidden" Selected="yes" FriendlyName="NetFX4Hidden" />
     <SelectableItemCustomization Id="NetFX45Hidden" Selected="yes" FriendlyName="NetFX45Hidden" />
     <SelectableItemCustomization Id="NetFX451MTPackHidden" Selected="yes" FriendlyName="NetFX451MTPackHidden" />
@@ -28,7 +28,7 @@
     <SelectableItemCustomization Id="SDKTools3Hidden" Selected="yes" FriendlyName="SDKTools3Hidden" />
     <SelectableItemCustomization Id="SDKTools4Hidden" Selected="yes" FriendlyName="SDKTools4Hidden" />
     <SelectableItemCustomization Id="WCFDataServicesHidden" Selected="yes" FriendlyName="WCFDataServicesHidden" />
-    <SelectableItemCustomization Id="NativeLanguageSupport_VCV1" Hidden="no" Selected="no" FriendlyName="Common Tools for Visual C++ 2015" />
+    <SelectableItemCustomization Id="NativeLanguageSupport_VCV1" Hidden="no" Selected="yes" FriendlyName="Common Tools for Visual C++ 2015" />
     <SelectableItemCustomization Id="NativeLanguageSupport_MFCV1" Hidden="no" Selected="no" FriendlyName="Microsoft Foundation Classes for C++" />
     <SelectableItemCustomization Id="NativeLanguageSupport_XPV1" Hidden="no" Selected="no" FriendlyName="Windows XP Support for C++" />
     <SelectableItemCustomization Id="Win81SDK_HiddenV1" Hidden="no" Selected="no" FriendlyName="Windows 8.1 SDK and Universal CRT SDK" />
@@ -65,7 +65,7 @@
     <SelectableItemCustomization Id="VS_SDK_Breadcrumb_GroupV3" Selected="no" FriendlyName="Visual Studio Extensibility Tools Update 1" />
     <SelectableItemCustomization Id="Win10_VSToolsV4" Hidden="no" Selected="no" FriendlyName="Tools for Universal Windows Apps (1.2) and Windows 10 SDK (10.0.10586)" />
     <SelectableItemCustomization Id="Win10SDK_HiddenV1" Hidden="no" Selected="no" FriendlyName="Windows 10 SDK (10.0.10240)" />
-    <SelectableItemCustomization Id="Win10SDK_HiddenV2" Selected="no" FriendlyName="Windows 10 SDK (10.0.10586)" />
+    <SelectableItemCustomization Id="Win10SDK_HiddenV2" Selected="yes" FriendlyName="Windows 10 SDK (10.0.10586)" />
     <SelectableItemCustomization Id="Win10SDK_VisibleV1" Hidden="no" Selected="no" FriendlyName="Windows 10 SDK 10.0.10240" />
     <SelectableItemCustomization Id="UWPPatch_KB3073097_HiddenV3" Selected="no" FriendlyName="KB3073097" />
     <SelectableItemCustomization Id="AppInsightsToolsVSWinExpressHiddenV4" Selected="no" FriendlyName="Application Insights Tools (4.1.60107)" />
