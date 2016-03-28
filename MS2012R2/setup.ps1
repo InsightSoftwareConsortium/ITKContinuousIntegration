@@ -29,3 +29,8 @@ cd src
 
 
 netsh advfirewall firewall add rule dir=in protocol=TCP localport=445 name=SMPTCP action=allow
+
+winrm quickconfig
+cmd.exe /C 'winrm set winrm/config/service/Auth @{Basic="true"}'
+cmd.exe /C 'winrm set winrm/config/service @{AllowUnencrypted="true"}'
+cmd.exe /C 'winrm set winrm/config/winrs @{MaxMemoryPerShellMB="16024"}'
