@@ -29,6 +29,7 @@ cd src
 
 
 netsh advfirewall firewall add rule dir=in protocol=TCP localport=445 name=SMPTCP action=allow
+netsh advfirewall firewall add rule dir=in protocol=TCP localport=5985 name=WINRMIncoming action=allow
 
 winrm quickconfig
 cmd.exe /C 'winrm set winrm/config/service/Auth @{Basic="true"}'
