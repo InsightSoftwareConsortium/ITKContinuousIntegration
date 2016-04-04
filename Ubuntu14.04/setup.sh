@@ -7,6 +7,9 @@ sudo apt-get -y update --fix-missing
 sudo apt-get install -y openjdk-7-jdk
 sudo apt-get install -y cmake \
   cmake-curses-gui \
+  ca-certificates \
+  libcurl4-openssl-dev \
+  libssl-dev \
   libncurses5-dev \
   git \
   build-essential \
@@ -42,5 +45,8 @@ mkdir bin
 cd bin
 mkdir CMake
 cd CMake
-cmake -G Ninja -DCMAKE_BUILD_TYPE=Release ../../src/CMake
+cmake -G Ninja \
+  -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_USE_OPENSSL:BOOL=ON \
+  ../../src/CMake
 ninja
