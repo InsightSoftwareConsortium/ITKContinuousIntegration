@@ -14,6 +14,7 @@ sudo apt-get install -y cmake \
   git \
   build-essential \
   python-dev \
+  python-numpy \
   ccache \
   clang \
   wget \
