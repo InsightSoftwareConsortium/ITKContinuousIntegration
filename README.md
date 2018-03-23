@@ -1,2 +1,4 @@
-# ITKJenkinsTemplate
-This repository provides a Jenkins configuration template to submit builds to the ITK dashboard.
+# ITKCIDeployment
+This repository provides scripts to setup continuous integration. This includes
+scripts to configure Jenkins to automatically manage the builds, and build
+robot configuration scripts.
