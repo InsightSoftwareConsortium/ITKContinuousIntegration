@@ -1,15 +1,32 @@
+General
+=======
+
+This project configures and starts a Jenkins instance for ITK. It uses the upstream Jenkins docker image to create
+its own docker image (installing the plugins listed in the configuration file). The SSL connection is handled through
+a nginx instance (reverse proxy). Nginx runs the nginx upstream docker image. Both containers are linked with the
+docker run option `--link` (See `run.sh`).
+
+Starting the server should normally done running `run.sh`. A folder named `itkjenkins` will be created and contain all
+the Jenkins configuration files. This folder is automatically mounted in the Jenkins docker container. The private key
+and private SSL certificates are mounted in the nginx container. The paths to these are given with environment variable
+(see below `Starting an ITK Jenkins instance`).
+
 Starting an ITK Jenkins instance
 ================================
 
+* Create `SSL_CERT` environment variable to point to the location of the
+  SSL certificate (`export SSL_CERT {my_location}`).
+* Create `SSL_KEY` environment variable to point to the location of the
+  SSL private key (`export SSL_KEY ${my_location}).
 * run `build.sh` to create the Jenkins image
-* run `run.sh` to start the Jenkins server
+* run `run.sh` to start the nginx and Jenkins servers
 * Get admin temporary password
   - Read the output of `run.sh`. The initial admin password is printed
   in the output
   - or run `docker exec itkjenkins more /var/jenkins_home/secrets/initialAdminPassword`
     (or `getSecret.sh` script)
-* Open browser and connect to server. Don't forget the `https` in the address
-* Enter admin password
+* Open browser and connect to server. It should appear as a secure connection (SSL).
+* Enter admin password (=secret). If needed, admin user name is `admin`.
 * Click on "x" next to "Getting Started" to skip installation of plugins. The ones we need are already installed in the
 docker image
 * Click on "Start using Jenkins"
@@ -100,4 +117,27 @@ Configuration files
  - config.xml
 * Custom files
  - org.jenkinsci.plugins.configfiles.GlobalConfigFiles.xml
+
+Troubleshoot
+============
+
+"This site can’t be reached":
+Jenkins webpage is not loading: "This site can’t be reached"
+Try ssh’ing into the azure server and run:
+docker exec -it itkjenkins /bin/bash
+If it returns:
+containerd: container not found
+even after trying docker stop itkjenkins and docker start itkjenkins, there is a problem.
+Restart docker deamon:
+sudo service docker restart
+Hopefully it works now.
+
+"502: Bad Gateway":
+Jenkins webpage is not loading properly: "502: Bad Gateway"
+Try ssh’ing into the azure server and check that both docker containers are running.
+docker ps
+If not, try to restart the one that is not running:
+docker start itkjenkins
+
+Wait a few seconds and try to load the webpage again.
 
