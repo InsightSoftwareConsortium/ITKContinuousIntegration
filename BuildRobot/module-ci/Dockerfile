@@ -1,4 +1,4 @@
-FROM docker:18.01.0-ce-git
+FROM docker:18.04.0-ce-git
 MAINTAINER Matt McCormick <matt.mccormick@kitware.com>
 
 RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories \
@@ -18,8 +18,8 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repos
     zlib-dev \
   && ln -s /usr/bin/python3 /usr/bin/python
 
-# ITK master 2017-12-21
-ENV ITK_VERSION v4.13.0
+# ITK master 2018-04-16
+ENV ITK_VERSION 2054fa983a0b7dc2e3b84c3c27d1bc19e2508c2f
 RUN git clone https://github.com/InsightSoftwareConsortium/ITK.git \
   && cd ITK \
   && git checkout ${ITK_VERSION} \
