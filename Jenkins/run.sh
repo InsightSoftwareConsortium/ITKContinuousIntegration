@@ -7,14 +7,26 @@ then
   mkdir -p $HOME/itkjenkins
 fi
 
-container_name=itkjenkins
+function check_container()
+{
+  local container_name=$1
+  local container_exists=$(docker ps -aq --no-trunc --filter name=^/$container_name$)
 
-container_exists=$(docker ps -aq --no-trunc --filter name=^/$container_name$)
+  if [[ "$container_exists" ]]
+  then
+    echo "Container named $container_name already exist. Remove it first."
+    exit -1
+  fi
+}
 
-if [[ "$container_exists" ]]
-then
-  echo "Container named $container_name already exist. Remove it first."
-  exit -1
-fi
+nginx_container_name=mynginx
+check_container $nginx_container_name
 
-docker run -p 443:4430 -v $HOME/itkjenkins:/var/jenkins_home --name $container_name -d jenkins
+jenkins_container_name=itkjenkins
+check_container $jenkins_container_name
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+docker run -p 8080:8080 -v $HOME/itkjenkins:/var/jenkins_home --name $jenkins_container_name -d jenkins
+
+docker run -p 443:443 -p 80:80 -v $SSL_CERT:/etc/ssl/your_domain_name.pem -v $SSL_KEY:/etc/ssl/your_domain_name.key -v $DIR/nginx.conf:/etc/nginx/conf.d/default.conf --name $nginx_container_name --link itkjenkins:itkjenkins -d nginx
