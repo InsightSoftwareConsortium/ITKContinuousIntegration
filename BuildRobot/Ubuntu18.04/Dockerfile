@@ -10,6 +10,7 @@ RUN apt-get -y update && \
     cmake \ 
     cmake-curses-gui \
     ca-certificates \
+    curl \
     libcurl4-openssl-dev \
     libssl-dev \
     libncurses5-dev \
