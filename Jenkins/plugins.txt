@@ -12,3 +12,4 @@ parameterized-trigger
 github
 github-oauth
 role-strategy
+hyper-slaves
