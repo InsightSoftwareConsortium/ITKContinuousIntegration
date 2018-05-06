@@ -15,9 +15,12 @@ Starting an ITK Jenkins instance
 ================================
 
 * Create `SSL_CERT` environment variable to point to the location of the
-  SSL certificate (`export SSL_CERT {my_location}`).
+  SSL certificate (`export SSL_CERT {my_location}`). This should be a
+  location like
+  etc/letsencrypt/archive/itkjenkins.eastus.cloudapp.azure.com/fullchain1.pem
 * Create `SSL_KEY` environment variable to point to the location of the
   SSL private key (`export SSL_KEY ${my_location}).
+  etc/letsencrypt/archive/itkjenkins.eastus.cloudapp.azure.com/privkey1.pem
 * run `build.sh` to create the Jenkins image
 * run `run.sh` to start the nginx and Jenkins servers
 * Get admin temporary password
