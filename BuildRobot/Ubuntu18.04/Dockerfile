@@ -38,3 +38,4 @@ RUN mkdir data && \
 
 # The reference repository for cloning
 RUN git clone https://github.com/InsightSoftwareConsortium/ITK.git
+RUN git clone https://github.com/InsightSoftwareConsortium/ITKExamples.git

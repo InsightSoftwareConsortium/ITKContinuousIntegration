@@ -49,6 +49,8 @@ docker image
   - Assign Roles:
     - group "authenticated" is for all authenticated users
     - Use Github user names to add users to role
+* Configure hyper: https://github.com/jenkinsci/hyper-slaves-plugin
+* Expose port TCP 50000 (or the fixed value at Jenkins Configure Global Security) for JNLP connections
 
 Backup Jenkins data folder
 ==========================
