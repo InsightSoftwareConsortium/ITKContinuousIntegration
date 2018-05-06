@@ -1,22 +1,29 @@
-FROM docker:18.04.0-ce-git
+FROM docker:18.05.0-ce-rc1-git
 MAINTAINER Matt McCormick <matt.mccormick@kitware.com>
 
 RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repositories \
   && apk update \
   && apk add \
+    bash \
     curl \
     curl-dev \
-    cmake \
     expat-dev \
     g++ \
     make \
     jpeg-dev \
     libpng-dev \
     ninja \
+    openssl-dev \
     python3-dev \
     tiff-dev \
     zlib-dev \
   && ln -s /usr/bin/python3 /usr/bin/python
+
+ENV CMAKE_VERSION 3.11.1
+RUN mkdir -p /usr/src && \
+  curl -O https://raw.githubusercontent.com/dockcross/dockcross/f5c87215fc52e7f72c88842c8486d0be6ba8161b/imagefiles/build-and-install-cmake.sh && \
+  chmod +x ./build-and-install-cmake.sh && \
+  ./build-and-install-cmake.sh
 
 # ITK master 2018-04-16
 ENV ITK_VERSION 2054fa983a0b7dc2e3b84c3c27d1bc19e2508c2f
