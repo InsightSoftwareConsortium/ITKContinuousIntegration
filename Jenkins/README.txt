@@ -54,6 +54,7 @@ docker image
     - Use Github user names to add users to role
 * Configure hyper: https://github.com/jenkinsci/hyper-slaves-plugin
 * Expose port TCP 50000 (or the fixed value at Jenkins Configure Global Security) for JNLP connections
+* Configure GitHub Pull Request builder: https://wiki.jenkins.io/display/JENKINS/GitHub+pull+request+builder+plugin
 
 Backup Jenkins data folder
 ==========================
