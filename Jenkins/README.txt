@@ -55,6 +55,8 @@ docker image
 * Configure hyper: https://github.com/jenkinsci/hyper-slaves-plugin
 * Expose port TCP 50000 (or the fixed value at Jenkins Configure Global Security) for JNLP connections
 * Configure GitHub Pull Request builder: https://wiki.jenkins.io/display/JENKINS/GitHub+pull+request+builder+plugin
+* Configure Azure VM Agents: https://plugins.jenkins.io/azure-vm-agents ,
+  https://docs.microsoft.com/en-us/azure/jenkins/jenkins-azure-vm-agents
 
 Backup Jenkins data folder
 ==========================

@@ -14,3 +14,4 @@ github-oauth
 role-strategy
 hyper-slaves
 ghprb
+azure-vm-agents
