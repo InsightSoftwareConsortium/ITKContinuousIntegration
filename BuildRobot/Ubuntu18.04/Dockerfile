@@ -6,23 +6,28 @@ RUN apt-get -y update && \
   apt-get -y install openjdk-8-jdk && \
   apt-get -y update --fix-missing && \
   apt-get install -y openjdk-8-jdk && \
-  apt-get install -y \
+  DEBIAN_FRONTEND=noninteractive apt-get install -y \
     cmake \ 
     cmake-curses-gui \
     ca-certificates \
     curl \
+    dvipng \
     libcurl4-openssl-dev \
     libssl-dev \
     libncurses5-dev \
     git \
+    gnuplot \
     build-essential \
     python-dev \
     python-numpy \
+    python-sphinx \
     ccache \
     clang \
     wget \
     ninja-build \
     subversion && \
+  apt-get install -y --no-install-recommends \
+    texlive-latex-base && \
   apt-get clean
 
 RUN ccache -M 5G
