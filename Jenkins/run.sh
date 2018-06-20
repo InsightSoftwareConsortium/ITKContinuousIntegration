@@ -31,4 +31,7 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 docker run --restart unless-stopped -p $jnlp_port:$jnlp_port -p 8080:8080 -v $HOME/itkjenkins:/var/jenkins_home -e "JAVA_OPTS=-Djenkins.slaves.DefaultJnlpSlaveReceiver.disableStrictVerification=true" --name $jenkins_container_name -d jenkins
 
-docker run -p 443:443 -p 80:80 -v $SSL_CERT:/etc/ssl/your_domain_name.pem -v $SSL_KEY:/etc/ssl/your_domain_name.key -v $DIR/nginx.conf:/etc/nginx/conf.d/default.conf --name $nginx_container_name --link itkjenkins:itkjenkins -d nginx
+if [ ! -d ~/acme-challenge/.well-known/acme-challenge/ ]; then
+  mkdir -p ~/acme-challenge/.well-known/acme-challenge/
+fi
+docker run -p 443:443 -p 80:80 -v $SSL_CERT:/etc/ssl/your_domain_name.pem -v $SSL_KEY:/etc/ssl/your_domain_name.key -v ~/acme-challenge:/data/letsencrypt -v $DIR/nginx.conf:/etc/nginx/conf.d/default.conf --name $nginx_container_name --link itkjenkins:itkjenkins -d nginx
