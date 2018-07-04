@@ -21,6 +21,11 @@ Starting an ITK Jenkins instance
 * Create `SSL_KEY` environment variable to point to the location of the
   SSL private key (`export SSL_KEY ${my_location}).
   etc/letsencrypt/archive/itkjenkins.eastus.cloudapp.azure.com/privkey1.pem
+* Create `LETSENCRYPT_EMAIL` environment variable that contains the email address
+  that is contacted when the SSL certificate is about to expire.
+* Set weekly cron job to renew SSL certificate (NOTE: it will actually only be
+  renewed when it is about to expire). The cron job should run
+  `renewSSLcertificate.script`
 * run `build.sh` to create the Jenkins image
 * run `run.sh` to start the nginx and Jenkins servers
 * Get admin temporary password

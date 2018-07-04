@@ -1,0 +1,15 @@
+#!/bin/bash
+# export real email address that will be notified when certificate
+# is about to expire in bash environment (~/.bashrc).
+#export LETSENCRYPT_EMAIL=me@example.com
+export DNSNAME=itkjenkins.eastus.cloudapp.azure.com
+
+docker run --rm --name letsencrypt \
+    -v ~/etc/letsencrypt:/etc/letsencrypt \
+    -v ~/var/lib/letsencrypt:/var/lib/letsencrypt \
+    -v ~/acme-challenge/:/acme-challenge \
+    certbot/certbot:latest \
+    certonly -n -d $DNSNAME --agree-tos \
+    --webroot -w /acme-challenge \
+    --email $LETSENCRYPT_EMAIL
+
