@@ -43,6 +43,7 @@ RUN mkdir ITK-build \
     -DITK_USE_SYSTEM_PNG:BOOL=ON \
     -DITK_USE_SYSTEM_TIFF:BOOL=ON \
     -DITK_USE_SYSTEM_ZLIB:BOOL=ON \
+    -DModule_RLEImage:BOOL=ON \
     ../ITK \
   && ninja \
   && find . -name '*.o' -delete
