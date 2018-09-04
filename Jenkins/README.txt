@@ -131,6 +131,14 @@ Configuration files
 * Custom files
  - org.jenkinsci.plugins.configfiles.GlobalConfigFiles.xml
 
+SSL Configuration file
+======================
+* A file named ~/.load_keys.sh should be created and should export the following environement variables:
+** SSL_CERT=/path/to/fullchain.pem
+** SSL_KEY=/path/to/privkey.pem
+** LETSENCRYPT_EMAIL=my@email.com
+** DNSNAME=my_dns.com
+
 Troubleshoot
 ============
 

@@ -1,10 +1,15 @@
 #!/bin/bash
 # export real email address that will be notified when certificate
 # is about to expire in bash environment (~/.bashrc).
-#export LETSENCRYPT_EMAIL=me@example.com
-export DNSNAME=itkjenkins.eastus.cloudapp.azure.com
 
-docker run --rm --name letsencrypt \
+if [[ ! -f ~/load_keys.sh ]]
+then
+  echo "Missing ~/load_keys.sh file that defines SSL_CERT, SSL_KEY, and LETSENCRYPT_EMAIL environment variables"
+  exit 1
+fi
+source ~/load_keys.sh
+
+docker run --name letsencrypt \
     -v ~/etc/letsencrypt:/etc/letsencrypt \
     -v ~/var/lib/letsencrypt:/var/lib/letsencrypt \
     -v ~/acme-challenge/:/acme-challenge \
@@ -13,3 +18,25 @@ docker run --rm --name letsencrypt \
     --webroot -w /acme-challenge \
     --email $LETSENCRYPT_EMAIL
 
+res=$(docker logs letsencrypt)
+
+docker rm letsencrypt
+
+if echo $res | grep -q "Certificate not yet due for renewal; no action taken"
+then
+  exit 0
+fi
+# Remove symbolic links to old SSL_KEY and SSL_CERT
+# that have now been renewed.
+rm $SSL_KEY
+rm $SSL_CERT
+
+# Create symbolic links to newly created SSL_KEY and SSL_CERT.
+DIRNAME=$(dirname $SSL_CERT)
+NEW_SSL_CERT=$(ls -Lrt $DIRNAME/fullchain*pem |tail -1)
+ln -s $NEW_SSL_CERT $DIRNAME/fullchain.pem
+
+NEW_SSL_KEY=$(ls -Lrt $DIRNAME/privkey*pem |tail -1)
+ln -s $NEW_SSL_KEY $DIRNAME/privkey.pem
+
+./start_nginx.sh -k
