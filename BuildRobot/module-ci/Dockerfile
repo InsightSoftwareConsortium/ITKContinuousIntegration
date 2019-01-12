@@ -25,8 +25,8 @@ RUN mkdir -p /usr/src && \
   chmod +x ./build-and-install-cmake.sh && \
   ./build-and-install-cmake.sh
 
-# ITK master 2018-11-13
-ENV ITK_VERSION 64facb7b01f01fd63fa606d84d1b3d204381dac6
+# ITK master 2019-01-12
+ENV ITK_VERSION 99475715b85a3258834556a41ee3f09f59eadf7b
 RUN git clone https://github.com/InsightSoftwareConsortium/ITK.git \
   && cd ITK \
   && git checkout ${ITK_VERSION} \
