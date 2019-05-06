@@ -17,6 +17,7 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repos
     python3-dev \
     tiff-dev \
     zlib-dev \
+    linux-headers \
   && ln -s /usr/bin/python3 /usr/bin/python
 
 ENV CMAKE_VERSION 3.11.1
@@ -25,8 +26,8 @@ RUN mkdir -p /usr/src && \
   chmod +x ./build-and-install-cmake.sh && \
   ./build-and-install-cmake.sh
 
-# ITK master 2019-01-12
-ENV ITK_VERSION 99475715b85a3258834556a41ee3f09f59eadf7b
+# ITKv5.0rc02 2019-04-26
+ENV ITK_VERSION 90bdbdf96027a33bd2153aaabb554f6450c73b6f
 RUN git clone https://github.com/InsightSoftwareConsortium/ITK.git \
   && cd ITK \
   && git checkout ${ITK_VERSION} \
