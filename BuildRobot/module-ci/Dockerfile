@@ -17,6 +17,7 @@ RUN echo 'http://dl-cdn.alpinelinux.org/alpine/edge/community' >> /etc/apk/repos
     python3-dev \
     tiff-dev \
     zlib-dev \
+    linux-headers \
   && ln -s /usr/bin/python3 /usr/bin/python
 
 ENV CMAKE_VERSION 3.11.1
